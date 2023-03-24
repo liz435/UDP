@@ -3,8 +3,11 @@
 
 int Motor[6]={1,2,3,4,5,6};
 
-const char* ssid = "BFADT-IoT";
-const char* password = "bfaisthebest";
+//const char* ssid = "BFADT-IoT";
+//const char* password = "bfaisthebest";
+
+const char* ssid = "SpectrumSetup-53";
+const char* password = "walnutgenius483";
 
 WiFiUDP udp;
 unsigned int localUdpPort = 6000;
@@ -20,7 +23,31 @@ class Check{
     }
     void check(){
         for(int i=0; i<6; i++){
-           digitalWrite(Motor[i],data[i]);
+
+          switch(data[i]){
+            case 0:
+            digitalWrite(Motor[i],0);
+            Serial.println("case0");
+            break;
+
+            case 1:
+            digitalWrite(Motor[i],1);
+            Serial.println("case1");
+            break;
+            
+            case 2:
+            Serial.println("case2");
+            break;
+
+            case 3:
+            Serial.println("case3");
+            break;
+
+            case 4:
+            Serial.println("case4");
+            break;
+          }
+          
            Serial.println(data[i]);
         }
     }
@@ -55,7 +82,7 @@ void loop() {
     // Do something with the incoming packet
     Serial.print("Received packet with length ");
     Serial.println(len);
-    Serial.print("Data: ");
+    Serial.print("Data: ");fuf
     for (int i = 0; i < len; i++) {
       Serial.print(incomingPacket[i]);
       Serial.print(" ");
